@@ -174,7 +174,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.3":
+"@types/react-dom@npm:17.0.2":
+  version: 17.0.2
+  resolution: "@types/react-dom@npm:17.0.2"
+  dependencies:
+    "@types/react": "*"
+  checksum: abaadaa2629640870f4b982e3f32cf8f719773cfa97f02931baebef1993c0e2d70fd17f94b29bcf00d45ea099d5f04a042cf55ecb5e2bf8804c4e4cabdb4adc0
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*, @types/react@npm:^17.0.3":
   version: 17.0.3
   resolution: "@types/react@npm:17.0.3"
   dependencies:
@@ -400,9 +409,11 @@ __metadata:
   dependencies:
     "@types/node": ^14.14.41
     "@types/react": ^17.0.3
+    "@types/react-dom": 17.0.2
     next: 10.1.3
     react: 17.0.2
     react-dom: 17.0.2
+    three.js: ^0.77.1
     typescript: ^4.2.4
   languageName: unknown
   linkType: soft
@@ -3010,6 +3021,22 @@ fsevents@~2.3.1:
     mkdirp: ^1.0.3
     yallist: ^4.0.0
   checksum: d1d988eceb1ad2ecfaaf6fc5ecfe0c46fa005d04fe4c283355ccc52d3ffb4b6bf459a62f9ac7e36fd35251ab020399bdf527ab48b968120e06b4f61906a87d62
+  languageName: node
+  linkType: hard
+
+"three.js@npm:^0.77.1":
+  version: 0.77.1
+  resolution: "three.js@npm:0.77.1"
+  dependencies:
+    three: 0.77.0
+  checksum: 59fe5cfc92d92dfe56128b18d41bd96ff38ede1b59093006fe8c68dca786d5da33d51ae38022f245e3a0aea8520ad7a44b9a9d04b6f348f26096f55658df81dd
+  languageName: node
+  linkType: hard
+
+"three@npm:0.77.0":
+  version: 0.77.0
+  resolution: "three@npm:0.77.0"
+  checksum: bd206df102edea23df8c30fb1fe2542ce1f248831e79effbec6df31e8c57f15fd58c41652beb10423a5305f957dc323898ca3c952e54a3032b8976889bec9334
   languageName: node
   linkType: hard
 
