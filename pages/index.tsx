@@ -9,7 +9,7 @@ const Home = () => {
   return (
     hasMounted &&
       <Suspense fallback={null}>
-          <ThreeDrawing />
+        <ThreeDrawing />
       </Suspense>
   )
 }

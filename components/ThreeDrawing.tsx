@@ -17,25 +17,18 @@ const ThreeDrawing = () => {
     renderer.setSize(window.innerWidth, window.innerHeight)
 
     document.body.appendChild(renderer.domElement)
-  //   // キューブの作成
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-    const cube = new THREE.Mesh(geometry, material)
+
     const loader = new FBXLoader()
 
     loader.load(
       '/fbx/booth_sen_small_prototype.fbx',
       (fbx) => {
-        fbx.position.set(0, 0, 0)
-        fbx.rotation.set(0, Math.PI, 0)
+        fbx.position.set(0, -130, -500)
+        fbx.rotation.set(0, 0.6, 0)
+        fbx.scale.set(0.8, 0.8, 0.8)
         scene.add(fbx)
-        console.log('Adding FBX resource to the scene.')
       },
     )
-    scene.add(cube)
-
-    camera.position.z = 1
-    renderer.render(scene, camera)
     // sceneのレンダリング&フレーム処理
     const animate = () => {
       requestAnimationFrame(animate)
@@ -49,7 +42,11 @@ const ThreeDrawing = () => {
     createFbx()
   }, [])
 
-  return <canvas id="render-dom" />
+  return (
+    <div style={{ backgroundColor: '#000000' }}>
+      <canvas id="render-dom" />
+    </div>
+  )
 }
 
 export default ThreeDrawing
