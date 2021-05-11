@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import * as THREE　from 'three'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
 
 // https://threejs.org/docs/index.html#manual/ja/introduction/Creating-a-scene
-export const ThreeDrawing = () => {
-  const createBox = () => {
+const ThreeDrawing = () => {
+  const createFbx = () => {
     // シーンを作成
     const scene = new THREE.Scene()
     // カメラを作成（画角, アスペクト比
@@ -23,7 +23,7 @@ export const ThreeDrawing = () => {
     const cube = new THREE.Mesh(geometry, material)
     const loader = new FBXLoader()
 
-    const load = loader.load(
+    loader.load(
       '/fbx/booth_sen_small_prototype.fbx',
       (fbx) => {
         fbx.position.set(0, 0, 0)
@@ -32,26 +32,24 @@ export const ThreeDrawing = () => {
         console.log('Adding FBX resource to the scene.')
       },
     )
-    // scene.add(cube)
+    scene.add(cube)
 
     camera.position.z = 1
-    load()
     renderer.render(scene, camera)
     // sceneのレンダリング&フレーム処理
-    // const animate = () => {
-    //   requestAnimationFrame(animate)
-  //     // キューブのアニメーション
-  //     // cube.rotation.x += 0.01
-  //     // cube.rotation.y += 0.01
-    //   renderer.render(scene, camera)
-    // }
+    const animate = () => {
+      requestAnimationFrame(animate)
+      renderer.render(scene, camera)
+    }
 
-    // animate()
+    animate()
   }
 
   useEffect(() => {
-    createBox()
+    createFbx()
   }, [])
 
   return <canvas id="render-dom" />
 }
+
+export default ThreeDrawing
