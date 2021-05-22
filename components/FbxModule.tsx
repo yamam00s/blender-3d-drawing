@@ -1,10 +1,9 @@
 import React, { FC, useEffect } from 'react'
-import { useLoader } from '@react-three/fiber'
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
+import { useFBX } from '@react-three/drei'
 
 // https://threejs.org/docs/index.html#manual/ja/introduction/Creating-a-scene
 export const FbxModule = () => {
-  const fbx = useLoader(FBXLoader, './fbx/booth_sen_small_prototype.fbx')
+  const fbx = useFBX('./fbx/booth_sen_small_prototype.fbx')
 
   return (
     <>
