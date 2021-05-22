@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import { FbxModule } from 'components/FbxModule'
+import { Loader } from 'components/Loader'
 import styles from 'styles/Home.module.css'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
@@ -11,7 +12,7 @@ const Home = () => {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
 
-        <Suspense fallback={null}>
+        <Suspense fallback={Loader}>
           <FbxModule />
           <OrbitControls />
           <Environment preset="sunset" background />
