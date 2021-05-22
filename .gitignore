@@ -38,7 +38,6 @@ yarn-error.log*
 
 # yarn2
 .yarn/*
-!.yarn/cache
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks

@@ -1,16 +1,20 @@
-import React, { useState, lazy, Suspense, useEffect } from "react"
-const ThreeDrawing = lazy(() => import('components/ThreeDrawing'))
+import React, { Suspense } from "react"
+import { FbxModule } from 'components/FbxModule'
 import styles from 'styles/Home.module.css'
+import { Canvas } from '@react-three/fiber'
 
 const Home = () => {
-  const [hasMounted, setHasMounted] = useState(false)
-  useEffect(() => setHasMounted(true), [])
-
   return (
-    hasMounted &&
-      <Suspense fallback={null}>
-        <ThreeDrawing />
-      </Suspense>
+    <div id="canvas-container" style={{ backgroundColor: '#000000' }}>
+      <Canvas style={{ width: '100vw', height: '100vh' }}>
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+
+        <Suspense fallback={null}>
+          <FbxModule />
+        </Suspense>
+      </Canvas>
+    </div>
   )
 }
 
